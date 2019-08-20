@@ -83,6 +83,7 @@ function resetGame() {
   }
   const button = document.getElementsByTagName('button');
   for (let i = 0; i < button.length; i += 1) {
+    button[i].className = 'default-color';
     if (button[i].hasAttribute('disabled')) {
       button[i].removeAttribute('disabled');
     }
@@ -111,13 +112,15 @@ qwerty.addEventListener('click', (e) => {
     let letterFound = checkLetter(e.target.textContent);
     if (letterFound == null) {
       missed += 1;
-      e.target.style.background = '#D94545';
+      e.target.className = 'lose';
       // Remove live heart image and replace with lost heart
       for (let i = 0; i < heart.length; i += 1) {
         if (missed == i) {
           heart[i - 1].src = 'images/lostHeart.png';
         }
       }
+    } else {
+      e.target.className = 'win';
     }
     checkWin();
   }

@@ -64,14 +64,13 @@ button:hover {
   background-color: var(--color-keys);
 }
 
-button[disabled] {
-  background-color: #78CF82;
-}
-
 button[disabled]:hover {
   cursor: default;
 }
 
+.default-color {
+  background-color: var(--color-keys-light);
+}
 
 .main-container {
   display: flex;
